@@ -18,8 +18,8 @@ body{
 /* Botão */
 button{
     background-color: whitesmoke;
-    color: blue;
-    border: 2px solid blue;
+    color: 102f5e;
+    border: 2px solid 102f5e;
     padding: .3rem .6rem;
     font-size: 1rem;
     cursor: pointer;
@@ -28,6 +28,57 @@ button{
     align-items: center;
     transition: 0.4s;
 }
-butto:hover{
+
+button:hover{
     background-color:#102f5e ;
+    color: white;
+}
+
+/* Afeta as cores do icon das nossas bibliotecas */
+button:hover > i{
+    color: #fff;
+}
+
+button i{
+    color: #102f5e;
+    font-weight: bold;
+    /* Desabilitar os eventos de clique no item, o usuario ao clicar no item, fica como se tivesse a clicar no botão */
+    pointer-events: none;
+}
+
+input, select{
+    /*  */
+    padding: 0.25rem 0.5rem ;
+}
+
+.hide{
+    display: none;
+}
+
+/* todo header */
+
+.todo-container{
+    max-width: 450px;
+    margin: 3rem auto 0;
+    background-color: #fdfdfd;
+    padding: 1.5rem;
+    border-radius: 15px;
+
+}
+
+.todo-container header{
+    text-align: center;
+    padding: 0 1rem 1rem;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Todo Form */
+#todo-form, #edit-form{
+    padding: 1rem;
+    border-bottom:  1px solid #ccc;
+}
+
+#todo-form p, #edit-form p{
+    margin-bottom: 0.5rem;
+    font-weight: bold;
 }
