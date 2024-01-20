@@ -52,14 +52,14 @@ input, select{
 }
 
 .hide{
-    display: none;
+    /* display: none; */
 }
 
 /* todo header */
 
 .todo-container{
     max-width: 450px;
-    margin: 3rem auto 0;
+    margin: 3rem auto 0 ;
     background-color: #fdfdfd;
     padding: 1.5rem;
     border-radius: 15px;
@@ -79,6 +79,27 @@ input, select{
 }
 
 #todo-form p, #edit-form p{
-    margin-bottom: 0.5rem;
+    margin-bottom: .5rem;
     font-weight: bold;
+}
+
+.form-control{
+    /* Colocar o botão ao lado do imput */
+    display: flex;
+}
+
+.form-control input{
+    margin-right: 0.3rem;
+}
+
+#cancel-edit-btn{
+    margin-top: 1rem;
+}
+
+/* TODO TOOLBAR */
+
+#toolbar{
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+    display: flex;
 }
