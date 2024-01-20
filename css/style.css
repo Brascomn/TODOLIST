@@ -19,19 +19,27 @@ body{
 button{
     background-color: whitesmoke;
     color: 102f5e;
-    border: 2px solid 102f5e;
+    /* border: 2px solid 102f5e; */
     padding: .3rem .6rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: 0.4s;
+    /* My */
+    border-radius: 8px;
+    border: 0px;
+    box-shadow: 2px 2px 2px;
 }
 
+.todo button {
+    margin-right: 0.4rem;
+}
 button:hover{
     background-color:#102f5e ;
     color: white;
+    box-shadow: 2px 2px 2px #105e37 ;
 }
 
 /* Afeta as cores do icon das nossas bibliotecas */
@@ -52,7 +60,7 @@ input, select{
 }
 
 .hide{
-    /* display: none; */
+    display: none;
 }
 
 /* todo header */
