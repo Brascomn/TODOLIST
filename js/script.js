@@ -4,7 +4,7 @@
 // disponível quando o script é executado.
 
 document.addEventListener("DOMContentLoaded", function () {
-
+    
     // Seleção de Elementos
     const todoForm = document.querySelector("#todo-form");
     const todoInput = document.querySelector("#todo-input");
@@ -12,6 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const editForm = document.querySelector("#edit-form");
     const editInput = document.querySelector("#edit-input");
     const cancelEditBtn = document.querySelector("#cancel-edit-btn");
+    
+    // kcIA
+    const searchInput = document.querySelector("#search-input");
+    const eraseButton = document.querySelector("#erase-button");
+    const filterSelect = document.querySelector("#filter-select");
 
 
     let oldInputValue;
@@ -142,4 +147,37 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleForms();
 
     })
+
+
+    
+        document.addEventListener("input", function (e) {
+            if (e.target === searchInput) {
+                const searchTerm = searchInput.value.toLowerCase();
+                const todos = document.querySelectorAll(".todo");
+
+                todos.forEach((todo) => {
+                    const todoTitle = todo.querySelector("h3").innerText.toLowerCase();
+                    todo.style.display = todoTitle.includes(searchTerm) ? "flex" : "none";
+                });
+            }
+        });
+
+        eraseButton.addEventListener("click", function () {
+            searchInput.value = "";
+            // Restaurar a exibição de todas as tarefas ao apagar o campo de pesquisa
+            document.querySelectorAll(".todo").forEach(todo => todo.style.display = "flex");
+        });
+
+        filterSelect.addEventListener("change", function () {
+            const filterValue = filterSelect.value.toLowerCase();
+            const todos = document.querySelectorAll(".todo");
+
+            todos.forEach((todo) => {
+                const isDone = todo.classList.contains("done");
+                todo.style.display = (filterValue === "all" ||
+                    (filterValue === "done" && isDone) ||
+                    (filterValue === "todo" && !isDone)) ? "flex" : "none";
+            });
+        });
+
 });
