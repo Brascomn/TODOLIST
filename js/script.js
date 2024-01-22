@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const editInput = document.querySelector("#edit-input");
     const cancelEditBtn = document.querySelector("#cancel-edit-btn");
 
+
+    let oldInputValue;
+
     //Funções
 
     const saveTodo = (text) =>{
@@ -74,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let todoTitle;
 
         if (parentEl && parentEl.querySelector("h3")) {
-        todoTitle = parentEl.querySelector("h3")).innerText;
+        todoTitle = parentEl.querySelector("h3").innerText;
             
         }
 
@@ -97,6 +100,8 @@ document.addEventListener("DOMContentLoaded", function () {
         
         if (targerEl.classList.contains("edit-todo")) {
            toggleForms(); 
+           editInput.value = todoTitle;
+           oldInputValue.value = todoTitle;
         }
 
 
