@@ -78,6 +78,40 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+
+// ...
+
+document.addEventListener("input", function (e) {
+    if (e.target === searchInput) {
+        const searchTerm = searchInput.value.toLowerCase();
+        const todos = document.querySelectorAll(".todo");
+
+        todos.forEach((todo) => {
+            const todoTitle = todo.querySelector("h3").innerText.toLowerCase();
+            todo.style.display = todoTitle.includes(searchTerm) ? "flex" : "none";
+        });
+    }
+});
+
+eraseButton.addEventListener("click", function () {
+    searchInput.value = "";
+    // Restaurar a exibição de todas as tarefas ao apagar o campo de pesquisa
+    document.querySelectorAll(".todo").forEach(todo => todo.style.display = "flex");
+});
+
+filterSelect.addEventListener("change", function () {
+    const filterValue = filterSelect.value.toLowerCase();
+    const todos = document.querySelectorAll(".todo");
+
+    todos.forEach((todo) => {
+        const isDone = todo.classList.contains("done");
+        todo.style.display = (filterValue === "all" ||
+            (filterValue === "done" && isDone) ||
+            (filterValue === "todo" && !isDone)) ? "flex" : "none";
+    });
+});
+
+
     //Eventos
     todoForm.addEventListener("submit", (e) => {
         // e.preventDefault(); faz com que o formulário não seja enviado
@@ -147,37 +181,4 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleForms();
 
     })
-
-
-    
-        document.addEventListener("input", function (e) {
-            if (e.target === searchInput) {
-                const searchTerm = searchInput.value.toLowerCase();
-                const todos = document.querySelectorAll(".todo");
-
-                todos.forEach((todo) => {
-                    const todoTitle = todo.querySelector("h3").innerText.toLowerCase();
-                    todo.style.display = todoTitle.includes(searchTerm) ? "flex" : "none";
-                });
-            }
-        });
-
-        eraseButton.addEventListener("click", function () {
-            searchInput.value = "";
-            // Restaurar a exibição de todas as tarefas ao apagar o campo de pesquisa
-            document.querySelectorAll(".todo").forEach(todo => todo.style.display = "flex");
-        });
-
-        filterSelect.addEventListener("change", function () {
-            const filterValue = filterSelect.value.toLowerCase();
-            const todos = document.querySelectorAll(".todo");
-
-            todos.forEach((todo) => {
-                const isDone = todo.classList.contains("done");
-                todo.style.display = (filterValue === "all" ||
-                    (filterValue === "done" && isDone) ||
-                    (filterValue === "todo" && !isDone)) ? "flex" : "none";
-            });
-        });
-
 });
