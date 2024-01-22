@@ -50,7 +50,8 @@ button:hover > i{
 button i{
     color: #102f5e;
     font-weight: bold;
-    /* Desabilitar os eventos de clique no item, o usuario ao clicar no item, fica como se tivesse a clicar no botão */
+    /* Desabilitar os eventos de clique no item, o usuario ao clicar no item,
+    fica como se tivesse a clicar no botão */
     pointer-events: none;
 }
 
